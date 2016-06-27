@@ -1,6 +1,7 @@
 var express = require('express');
 var ejsLayouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
+var db = require('./models');
 var session = require('express-session');
 var passport = require('./config/ppConfig');
 var flash = require('connect-flash');
@@ -30,11 +31,25 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
+// creates a board on the user's board page and redirects to products/:color
+app.post('/', function(req, res) {
+
+});
+
+
+
 app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 });
 
+
+
+
 app.use('/auth', require('./controllers/auth'));
+app.use('/products', require('./controllers/products'));
+app.use('/boards', require('./controllers/boards'));
+app.use('/signup', require('./controllers/signup'));
+app.use('/signin', require('./controllers/signin'));
 
 var server = app.listen(process.env.PORT || 3000);
 
