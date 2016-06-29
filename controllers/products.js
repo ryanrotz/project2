@@ -64,8 +64,12 @@ router.post('/add', function(req, res) {
           name: req.body.title    // this is referencing the hidden input with name="title"
         }
       }).spread(function(item, created) {
+        item.addColor(color)
+        .then(function() {
+          res.send({color: color, board: board, item: item});
+        })
         console.log('step 4');
-        res.send({color: color, board: board, item: item});
+
       })
     })
   // res.redirect('/products/');
