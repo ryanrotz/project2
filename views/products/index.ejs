@@ -1,3 +1,13 @@
 <h2>This is the products page</h2>
 
-<p>What will go here?</p>
+<h3><%= colorQuery %></h3>
+
+
+<% itemArr.forEach(function(attribute) { %>
+  <p><a href="<%= attribute.DetailPageURL %>"><%= attribute.ItemAttributes.Title %></a><p>
+  <form action="/products/add" method="POST">
+    <input type="submit" value="Add to Board" name="addToBoard" class="btn">
+    <input type="hidden" value="<%= attribute.ItemAttributes.Title %>" name="title">
+    <input type="hidden" value="<%= colorQuery %>" name="color">
+  </form>
+<% }); %>
