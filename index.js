@@ -81,10 +81,10 @@ res.render('index');
 
 
 // creates a board on the user's board page and redirects to products/:color
-app.post('/', function(req, res) {
-  console.log('posted color: ' + req.body.color);
-    res.render('products/index');
-});
+// app.post('/', function(req, res) {
+//   console.log('posted color: ' + req.body.color);
+//     res.render('products/index');
+// });
 
 
 

@@ -5,7 +5,10 @@ var router = express.Router();
 
 // GET /boards displays a list of the boards the user has (i.e. "orange", "red")
 router.get('/', function(req, res) {
-  res.render('boards/index');
+  db.color.findAll({
+  }).then(function(colors) {
+    res.render('boards/index', { colors: colors });
+  });
 });
 
 // DELETE /boards lets you delete boards and renders the /boards page
