@@ -3,8 +3,8 @@ var db = require('../models');
 var passport = require('../config/ppConfig');
 var isLoggedIn = require('../middleware/isLoggedIn');
 var router = express.Router();
-var util = require('util'),
-  OperationHelper = require('apac').OperationHelper;
+var util = require('util');
+var OperationHelper = require('apac').OperationHelper;
 
 
 // GET /products -- displays all home decor products
