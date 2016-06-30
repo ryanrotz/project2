@@ -25,10 +25,50 @@ router.get('/:colorname', function(req, res) {
 });
 
 // DELETE /boards lets you delete boards and renders the /boards page
-// router.delete('/:colorname', function(req, res) {
-//   var boardToDelete = req.params.colorname;
-//   res.send("board deleted");
-// });
+router.post('/:colorname', function(req, res) {
+  db.color.findOne({
+    where: {
+      name: req.params.colorname
+    }
+  }).then(function(color) {
+    color.setItems(null).then(function() {      // deleting items from join table
+      db.color.destroy({                    // then delete the color
+        where: {
+          name: req.params.colorname
+        },
+        // include: [db.item]
+      })
+      .then(function(color) {
+        res.redirect("/boards");
+      });
+    });
+  });
+});
+
+router.post('/items/:id', function(req, res) {
+  db.item.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(item) {
+    item.setColors(null).then(function() {      // deleting items from join table
+      db.item.destroy({                    // then delete the color
+        where: {
+          id: req.params.id
+        },
+        // include: [db.item]
+      })
+      .then(function(item) {
+        res.redirect("/boards");
+      });
+    });
+  });
+});
+
+
+
+  // res.send("id: "+req.params.id);
+
 
 
 // PUT /boards/:color lets you remove products from a board and renders the /boards/:color page

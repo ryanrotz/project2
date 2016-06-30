@@ -18,7 +18,7 @@ var opHelper = new OperationHelper({
 opHelper.execute('ItemSearch', {
   'SearchIndex': 'HomeGarden',
   'Keywords': req.query.color,  // because the form's input type is search, we use req.query. Since the name (or id?) is "color" we add color here too.
-  'ResponseGroup': 'ItemAttributes,Offers,VariationMatrix',  // get images by adding a new response group???
+  'ResponseGroup': 'ItemAttributes,Offers,VariationMatrix,Images',  // get images by adding a new response group???
   'Sort': 'titlerank'
 }).then((response) => {
   // This returns "yellow". This parameter excludes a lot of products that match the color. Don't use it.
@@ -66,7 +66,8 @@ router.post('/add', function(req, res) {
       }).spread(function(item, created) {
         item.addColor(color)
         .then(function() {
-          res.send({color: color, board: board, item: item});
+          // res.send({color: color, board: board, item: item});
+          res.redirect('/products?color=' + req.body.color);
         })
         console.log('step 4');
 

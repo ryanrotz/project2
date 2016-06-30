@@ -4,4 +4,7 @@
 
 <% colors.forEach(function(color) { %>
   <p><%= color.name %></p>
+  <form method="POST" action="/boards/items/<%= color.id %>">
+    <input type="submit" value="Delete" name="delete">
+  </form>
 <% }); %>

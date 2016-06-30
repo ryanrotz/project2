@@ -3,4 +3,8 @@
 
 <% colors.forEach(function(color) { %>
   <p><a href="/boards/<%= color.name %>"><%= color.name %></a></p>
+  <form method="POST" action="boards/<%= color.name %>">
+    <input type="submit" value="Delete" name="delete">
+  </form>
+
 <% }); %>
