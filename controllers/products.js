@@ -1,13 +1,19 @@
 var express = require('express');
 var db = require('../models');
 var passport = require('../config/ppConfig');
+var isLoggedIn = require('../middleware/isLoggedIn');
 var router = express.Router();
 var util = require('util'),
   OperationHelper = require('apac').OperationHelper;
 
 
-// GET /products -- displays all home decor products? Probably won't be used...?
+// GET /products -- displays all home decor products
 router.get('/', function(req, res) {
+
+  if (!req.user) {
+    req.session.returnTo = req.originalUrl;
+      console.log(req.session.returnTo);
+  };
 
 var opHelper = new OperationHelper({
     awsId: process.env.AWS_ID,
@@ -42,7 +48,7 @@ router.get('/:color', function(req, res) {
 });
 
 // POST When someone clicks on a product, it should cause a board to be created
-router.post('/add', function(req, res) {
+router.post('/add', isLoggedIn, function(req, res) {
   // console.log('posted color: ' + req.body.color);
   // user must sign in to add something to the board
   console.log('step 1');
