@@ -7,8 +7,8 @@ var passport = require('./config/ppConfig');
 var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
 var request = require('request');
-var util = require('util'),
-  OperationHelper = require('apac').OperationHelper;
+var util = require('util');
+var OperationHelper = require('apac').OperationHelper;
 var app = express();
 
 app.set('view engine', 'ejs');
