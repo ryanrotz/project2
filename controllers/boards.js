@@ -1,10 +1,11 @@
 var express = require('express');
 var db = require('../models');
 var passport = require('../config/ppConfig');
+var isLoggedIn = require('../middleware/isLoggedIn');
 var router = express.Router();
 
 // GET /boards displays a list of the boards the user has (i.e. "orange", "red")
-router.get('/', function(req, res) {
+router.get('/', isLoggedIn, function(req, res) {
   db.color.findAll()
   .then(function(colors) {
     res.render('boards/index', { colors: colors });
