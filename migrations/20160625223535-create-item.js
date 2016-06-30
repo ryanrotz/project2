@@ -11,6 +11,12 @@ module.exports = {
       name: {
         type: Sequelize.TEXT
       },
+      url: {
+        type: Sequelize.TEXT
+      },
+      price: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

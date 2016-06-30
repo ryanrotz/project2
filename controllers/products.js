@@ -61,10 +61,12 @@ router.post('/add', function(req, res) {
       console.log('step 3');
       db.item.findOrCreate({
         where: {
-          name: req.body.title    // this is referencing the hidden input with name="title"
+          name: req.body.title,    // this is referencing the hidden input with name="title"
+          url: req.body.url,
+          price: req.body.price
         }
       }).spread(function(item, created) {
-        item.addColor(color)
+        item.addColor(color)      // this adds data to the join table itemsColors
         .then(function() {
           // res.send({color: color, board: board, item: item});
           res.redirect('/products?color=' + req.body.color);

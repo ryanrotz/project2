@@ -12,5 +12,7 @@
     <input type="submit" value="Add to Board" name="addToBoard" class="btn">
     <input type="hidden" value="<%= attribute.ItemAttributes.Title %>" name="title">
     <input type="hidden" value="<%= colorQuery %>" name="color">
+    <input type="hidden" value="<%= attribute.MediumImage.URL %>" name="url">
+    <input type="hidden" value="<%= attribute.OfferSummary.LowestNewPrice.FormattedPrice %>" name="price">
   </form>
 <% }); %>

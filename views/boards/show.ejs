@@ -3,7 +3,9 @@
 <p>This page will also let you remove products from the board.</p>
 
 <% colors.forEach(function(color) { %>
-  <p><%= color.name %></p>
+  <p><a href="<%= color.url %>"><%= color.name %></p></a>
+  <p><%= color.price %></p>
+  <div><a href="<%= color.url %>"><img src="<%= color.url %>" alt="product image"></a></div>
   <form method="POST" action="/boards/items/<%= color.id %>">
     <input type="submit" value="Delete" name="delete">
   </form>
