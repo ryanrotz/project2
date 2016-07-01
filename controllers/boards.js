@@ -57,7 +57,6 @@ router.post('/items/:id', function(req, res) {
         where: {
           id: req.params.id
         },
-        // include: [db.item]
       })
       .then(function(item) {
         res.redirect("/boards");
@@ -65,11 +64,6 @@ router.post('/items/:id', function(req, res) {
     });
   });
 });
-
-
-
-  // res.send("id: "+req.params.id);
-
 
 
 // PUT /boards/:color lets you remove products from a board and renders the /boards/:color page

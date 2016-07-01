@@ -2,18 +2,10 @@ body {
   font-family: 'Work Sans', sans-serif;
   margin: auto;
   text-align: center;
-/*  background-color: #f0f8ff;
-*//*  background: url('/img/black.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;*/
 }
 
-/*auto|length|cover|contain|initial|inherit;*/
-/*repeat|repeat-x|repeat-y|no-repeat|initial|inherit;*/
 
 .navbar {
-/*  background-color: #79cdcd;*/
   background-color: #336699;
 }
 
@@ -41,32 +33,12 @@ h4 a {
   color: gray;
 }
 
-/*.mainbtn {
-  margin: 0 auto;
-  float: none;
-}
-*/
-
-/*.homemain {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-*/
-
 .homemain {
   margin-top: 100px;
 }
 
 .product-result{
   border-top: 2px solid lightgray;
-/*  border-left: none;
-  border-right: none;
-  border-bottom: none;*/
-/*  margin-top: 20px;*/
-  /*padding: 10px 0px;*/
   padding: 20px 0;
 }
 
@@ -75,14 +47,11 @@ h4 a {
 }
 
 .add-to-board-btn {
-  /*display: block;*/
   padding: 10px;
   display: inline-block;
-/*  vertical-align: top;*/
 }
 
 .price {
-  /*position: relative;*/
   padding: 10px;
   display: inline-block;
   font-weight: bold;

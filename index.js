@@ -30,69 +30,15 @@ app.use(function(req, res, next) {
   next();
 });
 
-// app.get('/', function(req, res) {
-
-//     var qs = {
-//       s: 'star wars'
-//     };
-
-//   request({
-//     url: 'http://www.omdbapi.com',
-//     qs: qs
-//   }, function(error, response, body) {
-//     if (!error && response.statusCode == 200) {
-//       var dataObj = JSON.parse(body);
-//       res.send(dataObj.Search);
-//     }
-//   });
-//   // res.render('index');
-// });
-
 app.get('/', function(req, res) {
-
-// var opHelper = new OperationHelper({
-//     awsId: process.env.AWS_ID,
-//     awsSecret: process.env.AWS_SECRET,
-//     assocId: process.env.ASSOC_ID,
-// });
-
-// opHelper.execute('ItemSearch', {
-//   'SearchIndex': 'HomeGarden',
-//   'Keywords': 'orange',  // change to req.body
-//   'ResponseGroup': 'ItemAttributes,Offers,VariationMatrix',
-//   'Sort': 'titlerank'
-// }).then((response) => {
-//   // This returns "yellow". This parameter excludes a lot of products that match the color. Don't use it.
-//   // res.send(response.result.ItemSearchResponse.Items.Item[0].ItemAttributes.Color);
-//   // res.send(response.result);
-// var itemArr = response.result.ItemSearchResponse.Items.Item;
-//   // res.render('products/index', {itemArr: itemArr});
-//   res.send(itemArr);
-
-  // console.log("Results object: ", response.result);
-  // console.log("Raw response body: ", response.responseBody);
-// }).catch((err) => {
-//     console.error("Something went wrong! ", err);
-// });
 
 res.render('index');
 });
 
 
-
-// creates a board on the user's board page and redirects to products/:color
-// app.post('/', function(req, res) {
-//   console.log('posted color: ' + req.body.color);
-//     res.render('products/index');
-// });
-
-
-
 app.get('/profile', function(req, res) {
   res.render('profile');
 });
-
-
 
 
 app.use('/auth', require('./controllers/auth'));

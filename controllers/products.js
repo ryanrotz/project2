@@ -33,7 +33,7 @@ opHelper.execute('ItemSearch', {
 var itemArr = response.result.ItemSearchResponse.Items.Item;
   res.render('products/index', {itemArr: itemArr, colorQuery : req.query.color});
 
-  // res.send(itemArr);
+  // res.send(itemArr);  // DON'T REMOVE. Use this to see the JSON object returned from Amazon
 
   // console.log("Results object: ", response.result);
   // console.log("Raw response body: ", response.responseBody);
@@ -49,7 +49,6 @@ router.get('/:color', function(req, res) {
 
 // POST When someone clicks on a product, it should cause a board to be created
 router.post('/add', isLoggedIn, function(req, res) {
-  // console.log('posted color: ' + req.body.color);
   // user must sign in to add something to the board
   console.log('step 1');
   db.color.findOrCreate({
@@ -81,14 +80,7 @@ router.post('/add', isLoggedIn, function(req, res) {
 
       })
     })
-  // res.redirect('/products/');
   });
 });
-
-
-
-
-
-
 
 module.exports = router;
