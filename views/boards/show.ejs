@@ -1,7 +1,7 @@
-<h1>Board</h1>
+<h1>Your Board Items</h1>
 
 <% colors.forEach(function(color) { %>
-<!-- <div class="product-result"> -->
+<div class="product-result">
 
   <h4><a href="<%= color.url %>"><%= color.name %></p></h4>
   <div><a href="<%= color.url %>"><img src="<%= color.url %>" alt="product image"></a></div>
@@ -10,13 +10,13 @@
 
     <div class="add-to-board-btn">
       <form method="POST" action="/boards/items/<%= color.id %>">
-        <input type="submit" value="Delete" name="delete" class="btn btn-info">
+        <input type="submit" value="Delete" name="delete" class="btn btn-danger">
       </form>
     </div>
 
     <div class="price"><%= color.price %></div>
 
   </div>
-<!-- </div> -->
+</div>
 
 <% }); %>

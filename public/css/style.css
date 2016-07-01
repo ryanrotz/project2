@@ -63,3 +63,11 @@ h4 a {
   display: inline-block;
   font-weight: bold;
 }
+
+h2 a {
+  color: gray;
+}
+
+.vertbottom {
+  vertical-align: bottom;
+}

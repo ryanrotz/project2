@@ -1,10 +1,22 @@
-<h2>This is your boards page</h2>
-<p>It will display a list of boards (orange, yellow, blue, etc) that are generated when you type a color into the search field on the home page. When you type in "blue", a board called "blue" will show up here.</p>
+<h1>Boards</h1>
 
 <% colors.forEach(function(color) { %>
-  <p><a href="/boards/<%= color.name %>"><%= color.name %></a></p>
+
+<div class="product-result">
+
+<!-- <div class="wrapper-btn-price"> -->
+
+<div class="price">
+  <h2 class="boardname"><a href="/boards/<%= color.name %>"><%= color.name %></a></h2>
+</div>
+
+
+<div class="add-to-board-btn">
   <form method="POST" action="boards/<%= color.name %>">
-    <input type="submit" value="Delete" name="delete">
+    <input type="submit" value="Delete" name="delete" class="btn btn-danger vertbottom">
   </form>
+ </div><!--
+ -->
+</div>
 
 <% }); %>
