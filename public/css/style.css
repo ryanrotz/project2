@@ -1,7 +1,19 @@
 body {
+  font-family: 'Work Sans', sans-serif;
   margin: auto;
   text-align: center;
-  background: url('');
+/*  background: url('/img/black.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;*/
+}
+
+/*auto|length|cover|contain|initial|inherit;*/
+/*repeat|repeat-x|repeat-y|no-repeat|initial|inherit;*/
+
+.logo {
+  font-family: 'Rancho', cursive;
+  font-size: 30px;
 }
 
 h1 {
