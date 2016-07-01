@@ -1,13 +1,13 @@
-<h2>This is the products page</h2>
-
-<h3><%= colorQuery %></h3>
+<h1>Find something cool in <%= colorQuery %>.</h1>
 
 
 <% itemArr.forEach(function(attribute) { %>
-  <p><a href="<%= attribute.DetailPageURL %>"><%= attribute.ItemAttributes.Title %></a><p>
+  <div class="product-result">
+  <h4><a href="<%= attribute.DetailPageURL %>"><%= attribute.ItemAttributes.Title %></a><h4>
   <div><img src="<%= attribute.MediumImage.URL %>" alt="product image"></div>
-  <p><%= attribute.OfferSummary.LowestNewPrice.FormattedPrice %></p>
 
+  <div class="wrapper-btn-price">
+  <div class="add-to-board-btn">
   <form action="/products/add" method="POST">
     <input type="submit" value="Add to Board" name="addToBoard" class="btn">
     <input type="hidden" value="<%= attribute.ItemAttributes.Title %>" name="title">
@@ -15,4 +15,9 @@
     <input type="hidden" value="<%= attribute.MediumImage.URL %>" name="url">
     <input type="hidden" value="<%= attribute.OfferSummary.LowestNewPrice.FormattedPrice %>" name="price">
   </form>
+  </div>
+
+    <div class="price"><%= attribute.OfferSummary.LowestNewPrice.FormattedPrice %></div>
+  </div>
 <% }); %>
+

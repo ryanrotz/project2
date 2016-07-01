@@ -1,14 +1,23 @@
-<h2>Find home decor by color</h2>
 
-<form action="/products" method="GET">
-  <div class="form-group">
-    <input type="search" class="form-control" id="color" name="color" placeholder="enter a color" required>
+<div class="homemain">
+<h1>Find home decor by color</h1>
+
+<form action="/products" method="GET" class="form-inline">
+  <div class="row">
+ <!--    <div class="col-sm-4 col-sm-offset-4"> -->
+      <div class="input-group">
+        <label for="color" class="sr-only">Search</label>
+        <input type="search" class="form-control" id="color" name="color" placeholder="enter a color" required>
+        <span class="input-group-btn">
+        <input type="submit" class="btn btn-primary mainbtn"></input>
+        </span>
+      </div>
+<!--     </div> -->
   </div>
-  <input type="submit" class="btn btn-primary"></input>
 </form>
+</div>
 
-
-
+<!--
 <p><a href="/auth/signup">Signup</a></p>
 <p><a href="/auth/login">Login</a></p>
 <p><a href="/auth/logout">Logout</a></p>
@@ -16,4 +25,4 @@
 <p><a href="/boards/index">Boards</a></p>
 <p><a href="/boards/show">Boards Show page</a></p>
 <p><a href="/products/index">Products page</a></p>
-<p><a href="/products/show">Products Show page</a></p>
+<p><a href="/products/show">Products Show page</a></p> -->
