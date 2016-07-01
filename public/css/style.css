@@ -2,7 +2,8 @@ body {
   font-family: 'Work Sans', sans-serif;
   margin: auto;
   text-align: center;
-/*  background: url('/img/black.png');
+/*  background-color: #f0f8ff;
+*//*  background: url('/img/black.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;*/
@@ -11,10 +12,23 @@ body {
 /*auto|length|cover|contain|initial|inherit;*/
 /*repeat|repeat-x|repeat-y|no-repeat|initial|inherit;*/
 
-.logo {
+.navbar {
+/*  background-color: #79cdcd;*/
+  background-color: #336699;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+}
+
+.navbar-brand.logo {
   font-family: 'Rancho', cursive;
   font-size: 30px;
+  color: #FFFF00;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black ;
 }
+
+
 
 h1 {
   text-align: center;
