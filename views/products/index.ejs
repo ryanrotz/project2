@@ -10,7 +10,7 @@
 
     <div class="add-to-board-btn">
       <form action="/products/add" method="POST">
-        <input type="submit" value="Add to Board" name="addToBoard" class="btn btn-info">
+        <input type="submit" value="Add to Board" name="addToBoard" class="btn btn-primary">
         <input type="hidden" value="<%= attribute.ItemAttributes.Title %>" name="title">
         <input type="hidden" value="<%= colorQuery %>" name="color">
         <input type="hidden" value="<%= attribute.MediumImage.URL %>" name="url">
