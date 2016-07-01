@@ -1,12 +1,22 @@
-<h2>This is your boards show page</h2>
-<p>It will display products that you added to this board (i.e. various products that are orange)</p>
-<p>This page will also let you remove products from the board.</p>
+<h1>Board</h1>
 
 <% colors.forEach(function(color) { %>
-  <p><a href="<%= color.url %>"><%= color.name %></p></a>
-  <p><%= color.price %></p>
+<!-- <div class="product-result"> -->
+
+  <h4><a href="<%= color.url %>"><%= color.name %></p></h4>
   <div><a href="<%= color.url %>"><img src="<%= color.url %>" alt="product image"></a></div>
-  <form method="POST" action="/boards/items/<%= color.id %>">
-    <input type="submit" value="Delete" name="delete">
-  </form>
+
+  <div class="wrapper-btn-price">
+
+    <div class="add-to-board-btn">
+      <form method="POST" action="/boards/items/<%= color.id %>">
+        <input type="submit" value="Delete" name="delete" class="btn btn-info">
+      </form>
+    </div>
+
+    <div class="price"><%= color.price %></div>
+
+  </div>
+<!-- </div> -->
+
 <% }); %>

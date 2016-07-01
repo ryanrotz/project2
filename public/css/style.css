@@ -47,7 +47,7 @@ h4 a {
 }
 
 .wrapper-btn-price {
-
+  margin: 15px 0;
 }
 
 .add-to-board-btn {
@@ -61,4 +61,5 @@ h4 a {
   /*position: relative;*/
   padding: 10px;
   display: inline-block;
+  font-weight: bold;
 }
