@@ -15,29 +15,29 @@ router.get('/', function(req, res) {
       console.log(req.session.returnTo);
   };
 
-var opHelper = new OperationHelper({
-    awsId: process.env.AWS_ID,
-    awsSecret: process.env.AWS_SECRET,
-    assocId: process.env.ASSOC_ID,
-});
+  var opHelper = new OperationHelper({
+      awsId: process.env.AWS_ID,
+      awsSecret: process.env.AWS_SECRET,
+      assocId: process.env.ASSOC_ID,
+  });
 
-opHelper.execute('ItemSearch', {
-  'SearchIndex': 'HomeGarden',
-  'Keywords': req.query.color,  // because the form's input type is search, we use req.query. Since the name (or id?) is "color" we add color here too.
-  'ResponseGroup': 'ItemAttributes,Offers,VariationMatrix,Images',  // get images by adding a new response group???
-  'Sort': 'titlerank'
-}).then((response) => {
-  // This returns "yellow". This parameter excludes a lot of products that match the color. Don't use it.
-  // res.send(response.result.ItemSearchResponse.Items.Item[0].ItemAttributes.Color);
-  // res.send(response.result);
-var itemArr = response.result.ItemSearchResponse.Items.Item;
-  res.render('products/index', {itemArr: itemArr, colorQuery : req.query.color});
+  opHelper.execute('ItemSearch', {
+    'SearchIndex': 'HomeGarden',
+    'Keywords': req.query.color,  // because the form's input type is search, we use req.query. Since the name (or id?) is "color" we add color here too.
+    'ResponseGroup': 'ItemAttributes,Offers,VariationMatrix,Images',  // get images by adding a new response group???
+    'Sort': 'titlerank'
+  }).then((response) => {
+    // This returns "yellow". This parameter excludes a lot of products that match the color. Don't use it.
+    // res.send(response.result.ItemSearchResponse.Items.Item[0].ItemAttributes.Color);
+    // res.send(response.result);
+  var itemArr = response.result.ItemSearchResponse.Items.Item;
+    res.render('products/index', {itemArr: itemArr, colorQuery : req.query.color});
 
   // res.send(itemArr);  // DON'T REMOVE. Use this to see the JSON object returned from Amazon
 
   // console.log("Results object: ", response.result);
   // console.log("Raw response body: ", response.responseBody);
-}).catch((err) => {
+  }).catch((err) => {
     console.error("Something went wrong! ", err);
 });
 });
@@ -58,8 +58,8 @@ router.post('/add', isLoggedIn, function(req, res) {
     db.board.findOrCreate({
       where: {
         colorId: color.id,          //  color.id refers to the "id" column in the color table, which is referenced in the lines above (db.color.findOrCreate) using the "color" parameter.
-        userId: 1                  // hard coded for now. Need to change!
-        // userId: req.user.id
+        // userId: 1                  // hard coded for now. Need to change!
+        userId: req.user.id
       }
     }).spread(function(board, created) {
       // res.render('products/show');
